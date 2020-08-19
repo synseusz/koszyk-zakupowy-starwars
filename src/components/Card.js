@@ -11,8 +11,8 @@ class StarshipCard extends Component {
   }
   render() {
     return (
-      <Card bg="dark">
-        <Card.Header className="spaceship-card-header" as="h5">Cena: {this.props.price}</Card.Header>
+      <Card className="starship-card" bg="dark">
+        <Card.Header className="starship-card-header" as="h5">Cena: {this.props.price}</Card.Header>
         <Card.Body>
           <Card.Title>{this.props.name}</Card.Title>
           <Card.Text>
