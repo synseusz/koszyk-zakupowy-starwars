@@ -1,16 +1,21 @@
-import React from 'react';
-import './App.css';
-import { useQuery, gql } from '@apollo/client'
+import React from "react";
+import "./App.css";
 
-import Header from "./components/Header"
+import Header from "./components/Header";
+import Body from "./components/Body";
+
 
 
 function App() {
+  
   return (
-    <div className="App">
+    <div className="main">
       <Header />
+      <div className="body">
+        <Body />
+      </div>
+      
     </div>
-
   );
 }
 

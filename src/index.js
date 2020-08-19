@@ -13,7 +13,7 @@ import {
 const AClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    url: "https://swapi.apis.guru/",
+    uri: "https://swapi.apis.guru/",
   }),
 });
 

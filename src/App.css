@@ -1,5 +1,16 @@
 *{
     padding:0;
     margin:0;
-    
+    background-color: black;
+    color: white
+}
+
+.body {
+    height: fit-content;
+}
+
+.starship-card {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
 }
