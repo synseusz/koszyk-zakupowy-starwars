@@ -23,7 +23,7 @@ function Body() {
   if (error) return <p>Whoops... something went wrong while fetching data</p>;
 
   return (
-    <>
+    <div className="starship-card-container">
       {data.allStarships.starships.map((starship, id) => (
         <Card
           key={id}
@@ -32,7 +32,7 @@ function Body() {
           price={starship.costInCredits}
         />
       ))}
-    </>
+    </div>
   );
 }
 
