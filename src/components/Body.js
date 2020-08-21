@@ -19,8 +19,8 @@ const ALL_STARSHIPS = gql`
 function Body() {
   const { loading, error, data } = useQuery(ALL_STARSHIPS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Whoops... something went wrong while fetching data</p>;
+  if (loading) return <p className="popup-msg">Loading...</p>;
+  if (error) return <p className="popup-msg">Whoops... something went wrong while fetching data</p>;
 
   return (
     <div className="starship-card-container">

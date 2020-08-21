@@ -24,10 +24,15 @@
 }
 
 .body-container {
-    margin-top: 100px;
+    padding-top: 100px;
     height: fit-content;
     background-color: black;
 
+}
+
+.popup-msg {
+    text-align: center;
+    color:white
 }
 
 .starship-card-container {

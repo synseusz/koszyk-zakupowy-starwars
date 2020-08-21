@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="main">
       <Header />
-      <Container className="p-0 body-container" fluid>
+      <Container className="body-container" fluid>
         <Body />
       </Container>
 
