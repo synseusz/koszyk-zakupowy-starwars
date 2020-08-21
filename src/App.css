@@ -48,8 +48,15 @@
     border: 1px solid white;
     color: black;
 }
-.starship-card-header {
+
+/* Remove Arrows/Spinners */
+/* Chrome, Safari, Edge, Opera */
+.starship-card-counter-input::-webkit-outer-spin-button,
+.starship-card-counter-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
-.starship-card-input {
-    
-}
+/* Firefox */
+.starship-card-counter-input[type=number] {
+    -moz-appearance: textfield;
+  }

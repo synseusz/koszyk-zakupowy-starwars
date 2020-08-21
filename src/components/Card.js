@@ -15,6 +15,7 @@ class StarshipCard extends Component {
     this.handleCounterChange = this.handleCounterChange.bind(this);
     this.handleIncrement = this.handleIncrement.bind(this);
     this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleClearInput = this.handleClearInput.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
@@ -28,7 +29,7 @@ class StarshipCard extends Component {
   }
 
   handleIncrement() {
-    if (typeof this.state.counter === "string") {
+    if (this.state.counter === "") {
       this.setState({ counter: 1 });
     } else {
       const counter = this.state.counter + 1;
@@ -38,7 +39,7 @@ class StarshipCard extends Component {
   }
 
   handleDecrement() {
-    if (this.state.counter === 0) {
+    if (this.state.counter === 0 || this.state.counter === "") {
       return;
     } else {
       const counter = this.state.counter - 1;
@@ -46,9 +47,16 @@ class StarshipCard extends Component {
     }
   }
 
+  handleClearInput(e) {
+    if (e.target.value === "0") {
+      this.setState({ counter: "" });
+    }
+  }
+
   handleAddToCart() {
     const counter = this.state.counter;
     console.log(counter);
+
   }
 
   render() {
@@ -56,9 +64,7 @@ class StarshipCard extends Component {
       <>
         {this.props.price === null ? (
           <Card className="starship-card" bg="light">
-            <Card.Header className="starship-card-header" as="h5">
-              Produkt Niedostepny
-            </Card.Header>
+            <Card.Header as="h5">Produkt Niedostepny</Card.Header>
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
               <Card.Text>{this.props.manufacturers}</Card.Text>
@@ -66,27 +72,25 @@ class StarshipCard extends Component {
           </Card>
         ) : (
           <Card className="starship-card" bg="light">
-            <Card.Header className="starship-card-header" as="h5">
-              Cena: {this.props.price}
-            </Card.Header>
+            <Card.Header as="h5">Cena: {this.props.price}</Card.Header>
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
               <Card.Text>{this.props.manufacturers}</Card.Text>
-              <InputGroup
-                style={{ width: "120px" }}
-                className="m-auto starship-card-input"
-              >
+              <InputGroup style={{ width: "110px" }} className="m-auto">
                 <InputGroup.Prepend>
                   <Button variant="outline-dark" onClick={this.handleDecrement}>
                     -
                   </Button>
                 </InputGroup.Prepend>
                 <FormControl
+                  placeholder="0"
+                  className="starship-card-counter-input"
                   type="number"
                   aria-label="Items count"
                   aria-describedby="basic-item-counter"
                   value={this.state.counter}
                   onChange={this.handleCounterChange}
+                  onClick={this.handleClearInput}
                 />
                 <InputGroup.Append>
                   <Button variant="outline-dark" onClick={this.handleIncrement}>
