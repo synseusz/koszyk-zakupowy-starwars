@@ -10,6 +10,7 @@ class StarshipCard extends Component {
     super(props);
     this.state = {
       counter: "",
+      errorMsg: false,
     };
 
     this.handleCounterChange = this.handleCounterChange.bind(this);
@@ -17,35 +18,30 @@ class StarshipCard extends Component {
     this.handleDecrement = this.handleDecrement.bind(this);
     this.handleClearInput = this.handleClearInput.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
-    
   }
 
   handleCounterChange(e) {
     if (e.target.value === "") {
-      this.setState({ counter: "" });
-    } else {
-      const valueInt = parseInt(e.target.value);
-      this.setState({ counter: valueInt });
+      return this.setState({ counter: "" });
     }
+    const valueInt = parseInt(e.target.value);
+    this.setState({ counter: valueInt });
   }
 
   handleIncrement() {
     if (this.state.counter === "") {
-      this.setState({ counter: 1 });
-    } else {
-      const counter = this.state.counter + 1;
-
-      this.setState({ counter });
+      return this.setState({ counter: 1 });
     }
+    const counter = this.state.counter + 1;
+    this.setState({ counter });
   }
 
   handleDecrement() {
     if (this.state.counter === 0 || this.state.counter === "") {
       return;
-    } else {
-      const counter = this.state.counter - 1;
-      this.setState({ counter });
     }
+    const counter = this.state.counter - 1;
+    this.setState({ counter });
   }
 
   handleClearInput(e) {
@@ -55,16 +51,22 @@ class StarshipCard extends Component {
   }
 
   handleAddToCart() {
-  
+    const counter = this.state.counter;
 
     // TO DO - if counter === 0 || counter === "" error catch
     // Please provide quantity first!!
+    if (counter === 0 || counter === "" || counter < 0) {
+      return this.setState({ counter: "", errorMsg: true });
+    }
 
-    const counter = this.state.counter;
-    this.props.itemsInCartArray.push(counter)
+    this.setState({ counter: "", errorMsg: false });
+    this.props.itemsInCartArray.push(counter);
 
-    const sumItemsInCart = this.props.itemsInCartArray.reduce((a, b) => a + b, 0)
-    this.props.itemsInCart(sumItemsInCart)
+    const sumItemsInCart = this.props.itemsInCartArray.reduce(
+      (a, b) => a + b,
+      0
+    );
+    this.props.itemsInCart(sumItemsInCart);
   }
 
   render() {
@@ -75,7 +77,9 @@ class StarshipCard extends Component {
             <Card.Header as="h5">Produkt Niedostepny</Card.Header>
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
-              <Card.Text>{this.props.manufacturers}</Card.Text>
+              <Card.Text>{this.props.manufacturer1}</Card.Text>
+              {this.props.manufacturer2 && <Card.Text>AND</Card.Text>}
+              <Card.Text>{this.props.manufacturer2}</Card.Text>
             </Card.Body>
           </Card>
         ) : (
@@ -83,7 +87,10 @@ class StarshipCard extends Component {
             <Card.Header as="h5">Cena: {this.props.price}</Card.Header>
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
-              <Card.Text>{this.props.manufacturers}</Card.Text>
+              <Card.Text>{this.props.manufacturer1}</Card.Text>
+              {this.props.manufacturer2 && <Card.Text>AND</Card.Text>}
+              <Card.Text>{this.props.manufacturer2}</Card.Text>
+
               <InputGroup style={{ width: "110px" }} className="m-auto">
                 <InputGroup.Prepend>
                   <Button variant="outline-dark" onClick={this.handleDecrement}>
@@ -114,6 +121,7 @@ class StarshipCard extends Component {
                 Dodaj do koszyka
               </Button>
             </Card.Body>
+            {this.state.errorMsg ? <p style={{color: "red"}}>Proszę podać właściwą ilość modeli!</p> : null}
           </Card>
         )}
       </>

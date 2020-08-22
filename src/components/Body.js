@@ -30,7 +30,8 @@ function Body(props) {
           itemsInCart={props.itemsInCart}
           itemsInCartArray={props.itemsInCartArray}
           name={starship.name}
-          manufacturers={starship.manufacturers}
+          manufacturer1={starship.manufacturers[0]}
+          manufacturer2={starship.manufacturers[1]}
           price={starship.costInCredits}
         />
       ))}
