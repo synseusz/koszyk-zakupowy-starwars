@@ -16,7 +16,7 @@ const ALL_STARSHIPS = gql`
   }
 `;
 
-function Body() {
+function Body(props) {
   const { loading, error, data } = useQuery(ALL_STARSHIPS);
 
   if (loading) return <p className="popup-msg">Loading...</p>;
@@ -27,6 +27,8 @@ function Body() {
       {data.allStarships.starships.map((starship, id) => (
         <Card
           key={id}
+          itemsInCart={props.itemsInCart}
+          itemsInCartArray={props.itemsInCartArray}
           name={starship.name}
           manufacturers={starship.manufacturers}
           price={starship.costInCredits}

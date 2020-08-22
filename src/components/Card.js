@@ -9,7 +9,7 @@ class StarshipCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
+      counter: "",
     };
 
     this.handleCounterChange = this.handleCounterChange.bind(this);
@@ -17,6 +17,7 @@ class StarshipCard extends Component {
     this.handleDecrement = this.handleDecrement.bind(this);
     this.handleClearInput = this.handleClearInput.bind(this);
     this.handleAddToCart = this.handleAddToCart.bind(this);
+    
   }
 
   handleCounterChange(e) {
@@ -54,9 +55,16 @@ class StarshipCard extends Component {
   }
 
   handleAddToCart() {
-    const counter = this.state.counter;
-    console.log(counter);
+  
 
+    // TO DO - if counter === 0 || counter === "" error catch
+    // Please provide quantity first!!
+
+    const counter = this.state.counter;
+    this.props.itemsInCartArray.push(counter)
+
+    const sumItemsInCart = this.props.itemsInCartArray.reduce((a, b) => a + b, 0)
+    this.props.itemsInCart(sumItemsInCart)
   }
 
   render() {

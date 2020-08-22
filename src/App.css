@@ -7,6 +7,10 @@
     width: 0;
     height: 0;
 }
+.main-container {
+    background-color: black;
+
+}
 
 .navbar {
     background-color: black;
@@ -26,7 +30,6 @@
 .body-container {
     padding-top: 100px;
     height: fit-content;
-    background-color: black;
 
 }
 
