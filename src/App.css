@@ -1,65 +1,76 @@
-*{
-    padding:0;
-    margin:0;
-
+* {
+  padding: 0;
+  margin: 0;
 }
-::-webkit-scrollbar{
-    width: 0;
-    height: 0;
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 .main-container {
-    background-color: black;
-
+  background-color: black;
 }
 
 .navbar {
-    background-color: black;
-    height: 100px;
-    border-bottom: 2px solid white;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+  background-color: black;
+  height: 100px;
+  border-bottom: 2px solid white;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
 }
 .logo-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .logo-img {
-    height: 60px;
-    width: 200px;
+  height: 60px;
+  width: 200px;
+}
+.itemsInCart-badge {
+    position: fixed;
+    top:25px;
+    right:20px;
+    color:white;
 }
 
 .body-container {
-    padding-top: 100px;
-    height: fit-content;
-
+  /* background-image: url('https://i.pinimg.com/originals/1d/5c/24/1d5c244af392b9decf6b0e315facc79c.jpg'); */
+  /* background-image: url('https://www.wipremiertrivia.com/wp-content/uploads/2018/04/Death-Star.jpg'); */
+  /* background-image: url('https://wallpaperaccess.com/full/640760.jpg'); */
+  /* background-image: url('https://muropaketti.com/wp-content/uploads/2018/06/death-star-ii_b5760154.jpeg'); */
+  background-image: url("https://vignette.wikia.nocookie.net/starwars/images/e/ee/DeathStar2.jpg/revision/latest?cb=20150615015212");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
 }
 
 .popup-msg {
-    text-align: center;
-    color:white
+  text-align: center;
+  color: white;
 }
 
 .starship-card-container {
-    display: flex;
-    max-width: fit-content;
-    flex-wrap: wrap;
-    justify-content:center
+  display: flex;
+  max-width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .starship-card {
-    margin:30px;
-    width: 20rem;
-    text-align: center;
-    border: 1px solid white;
-    color: black;
+  margin: 30px;
+  width: 20rem;
+  text-align: center;
+  border: 1px solid white;
+  color: black;
 }
 
 /* Remove Arrows/Spinners */
 /* Chrome, Safari, Edge, Opera */
 .starship-card-counter-input::-webkit-outer-spin-button,
 .starship-card-counter-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 /* Firefox */
-.starship-card-counter-input[type=number] {
-    -moz-appearance: textfield;
-  }
+.starship-card-counter-input[type="number"] {
+  -moz-appearance: textfield;
+}

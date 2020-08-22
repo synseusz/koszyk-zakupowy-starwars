@@ -9,14 +9,12 @@ import { FaShoppingCart } from "react-icons/fa";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
-
 
   render() {
     return (
-      <Navbar className="navbar" bg="" variant="dark" fixed="top">
+      <Navbar className="navbar" bg="" variant="dark" sticky="top">
         <Navbar.Brand>
           <img
             src="/images/starwars-logo.png"
@@ -25,8 +23,12 @@ class Header extends Component {
           />
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
+          {this.props.itemsInCart > 0 && (
+            <Badge className="itemsInCart-badge" variant="dark">
+              {this.props.itemsInCart}
+            </Badge>
+          )}
           <Button variant="transparent">
-            <Badge variant="light">{this.props.itemsInCart}</Badge>
             <FaShoppingCart
               style={{ color: "white", width: "40px", height: "40px" }}
             />

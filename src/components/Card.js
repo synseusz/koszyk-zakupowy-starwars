@@ -53,8 +53,7 @@ class StarshipCard extends Component {
   handleAddToCart() {
     const counter = this.state.counter;
 
-    // TO DO - if counter === 0 || counter === "" error catch
-    // Please provide quantity first!!
+    // Error handler for 0, empty and negative values
     if (counter === 0 || counter === "" || counter < 0) {
       return this.setState({ counter: "", errorMsg: true });
     }
@@ -66,6 +65,9 @@ class StarshipCard extends Component {
       (a, b) => a + b,
       0
     );
+
+    // Lift state up
+    // Call onQtyChange function in App.js
     this.props.itemsInCart(sumItemsInCart);
   }
 
@@ -74,11 +76,11 @@ class StarshipCard extends Component {
       <>
         {this.props.price === null ? (
           <Card className="starship-card" bg="light">
-            <Card.Header as="h5">Produkt Niedostepny</Card.Header>
+            <Card.Header as="h5">Produkt Niedostępny</Card.Header>
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
               <Card.Text>{this.props.manufacturer1}</Card.Text>
-              {this.props.manufacturer2 && <Card.Text>AND</Card.Text>}
+              {this.props.manufacturer2 && <Card.Text>oraz</Card.Text>}
               <Card.Text>{this.props.manufacturer2}</Card.Text>
             </Card.Body>
           </Card>
@@ -88,7 +90,7 @@ class StarshipCard extends Component {
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
               <Card.Text>{this.props.manufacturer1}</Card.Text>
-              {this.props.manufacturer2 && <Card.Text>AND</Card.Text>}
+              {this.props.manufacturer2 && <Card.Text>oraz</Card.Text>}
               <Card.Text>{this.props.manufacturer2}</Card.Text>
 
               <InputGroup style={{ width: "110px" }} className="m-auto">

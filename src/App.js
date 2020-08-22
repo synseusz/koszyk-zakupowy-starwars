@@ -17,8 +17,8 @@ class App extends Component {
     this.onQtyChange = this.onQtyChange.bind(this)
   }
 
-  onQtyChange(itemsInCart) {
-    this.setState({itemsInCart: itemsInCart})
+  onQtyChange(value) {
+    this.setState({itemsInCart: value})
   }
 
   render() {
