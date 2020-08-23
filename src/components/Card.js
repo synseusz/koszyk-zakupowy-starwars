@@ -6,7 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Badge from "react-bootstrap/Badge";
 
-import { GiTwoCoins } from "react-icons/gi"
+import { GiTwoCoins } from "react-icons/gi";
 
 class StarshipCard extends Component {
   constructor(props) {
@@ -79,7 +79,7 @@ class StarshipCard extends Component {
       <>
         {this.props.price === null ? (
           <Card className="starship-card starship-card-unavailable" bg="light">
-            <Card.Img variant="top" src={this.props.image(this.props.name)} />
+            <Card.Img variant="top" style={{height: "200px"}} src={this.props.image(this.props.name)} />
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
               {!this.props.manufacturer2 && (
@@ -100,13 +100,12 @@ class StarshipCard extends Component {
           </Card>
         ) : (
           <Card className="starship-card" bg="light">
-            
-            <Card.Img variant="top" src={this.props.image(this.props.name)} />
+            <Card.Img variant="top" style={{height: "200px"}} src={this.props.image(this.props.name)} />
             <Badge
               variant="dark"
               style={{
                 fontSize: "20px",
-                borderRadius:"0px"
+                borderRadius: "0px",
               }}
             >
               <GiTwoCoins /> {this.props.price}
