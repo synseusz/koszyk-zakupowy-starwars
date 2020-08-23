@@ -28,7 +28,6 @@ class App extends Component {
         <Container className="body-container" fluid>
           <Body itemsInCartArray={this.state.itemsInCartArray} itemsInCart={this.onQtyChange} />
         </Container>
-
         {/* TO DO - FOOTER */}
       </div>
     );

@@ -4,6 +4,9 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import Badge from "react-bootstrap/Badge";
+
+import { GiTwoCoins } from "react-icons/gi"
 
 class StarshipCard extends Component {
   constructor(props) {
@@ -75,23 +78,52 @@ class StarshipCard extends Component {
     return (
       <>
         {this.props.price === null ? (
-          <Card className="starship-card" bg="light">
-            <Card.Header as="h5">Produkt Niedostępny</Card.Header>
+          <Card className="starship-card starship-card-unavailable" bg="light">
+            <Card.Img variant="top" src={this.props.image(this.props.name)} />
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
-              <Card.Text>{this.props.manufacturer1}</Card.Text>
-              {this.props.manufacturer2 && <Card.Text>oraz</Card.Text>}
-              <Card.Text>{this.props.manufacturer2}</Card.Text>
+              {!this.props.manufacturer2 && (
+                <Card.Subtitle className="mb-4 text-muted">
+                  {this.props.manufacturer1}
+                </Card.Subtitle>
+              )}
+
+              {this.props.manufacturer2 && (
+                <Card.Subtitle className="mb-4 text-muted">
+                  {this.props.manufacturer1}, {this.props.manufacturer2}
+                </Card.Subtitle>
+              )}
+              <Card.Text style={{ fontSize: "22px" }}>
+                Produkt Niedostępny
+              </Card.Text>
             </Card.Body>
           </Card>
         ) : (
           <Card className="starship-card" bg="light">
-            <Card.Header as="h5">Cena: {this.props.price}</Card.Header>
+            
+            <Card.Img variant="top" src={this.props.image(this.props.name)} />
+            <Badge
+              variant="dark"
+              style={{
+                fontSize: "20px",
+                borderRadius:"0px"
+              }}
+            >
+              <GiTwoCoins /> {this.props.price}
+            </Badge>
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
-              <Card.Text>{this.props.manufacturer1}</Card.Text>
-              {this.props.manufacturer2 && <Card.Text>oraz</Card.Text>}
-              <Card.Text>{this.props.manufacturer2}</Card.Text>
+              {!this.props.manufacturer2 && (
+                <Card.Subtitle className="mb-5 text-muted">
+                  {this.props.manufacturer1}
+                </Card.Subtitle>
+              )}
+
+              {this.props.manufacturer2 && (
+                <Card.Subtitle className="mb-5 text-muted">
+                  {this.props.manufacturer1}, {this.props.manufacturer2}
+                </Card.Subtitle>
+              )}
 
               <InputGroup style={{ width: "110px" }} className="m-auto">
                 <InputGroup.Prepend>
@@ -123,7 +155,11 @@ class StarshipCard extends Component {
                 Dodaj do koszyka
               </Button>
             </Card.Body>
-            {this.state.errorMsg ? <p style={{color: "red"}}>Proszę podać właściwą ilość modeli!</p> : null}
+            {this.state.errorMsg ? (
+              <p style={{ color: "red" }}>
+                Proszę podać właściwą ilość modeli!
+              </p>
+            ) : null}
           </Card>
         )}
       </>

@@ -24,7 +24,7 @@ class Header extends Component {
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
           {this.props.itemsInCart > 0 && (
-            <Badge className="itemsInCart-badge" variant="dark">
+            <Badge className="itemsInCart-badge" variant="">
               {this.props.itemsInCart}
             </Badge>
           )}
