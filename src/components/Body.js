@@ -4,7 +4,6 @@ import { useQuery, gql } from "@apollo/client";
 import starships from "../starships";
 import Card from "./Card";
 
-
 const ALL_STARSHIPS = gql`
   {
     allStarships {
@@ -19,17 +18,16 @@ const ALL_STARSHIPS = gql`
 `;
 
 // Example starships images
-const starshipImages = starships.starshipImages
+const starshipImages = starships.starshipImages;
 
 const iterateImages = (name) => {
   for (let i = 0; i < starshipImages.length; i++) {
     const img = starshipImages[i].image;
-    const starshipName = starshipImages[i].starshipName
-    
-    if (starshipName === name) {
-      return img
-    }
+    const starshipName = starshipImages[i].starshipName;
 
+    if (starshipName === name) {
+      return img;
+    }
   }
 };
 

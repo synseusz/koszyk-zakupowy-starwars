@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
@@ -6,15 +6,10 @@ import Badge from "react-bootstrap/Badge";
 
 import { FaShoppingCart } from "react-icons/fa";
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function Header(props) {
 
-  render() {
     return (
-      <Navbar className="navbar" bg="" variant="dark" sticky="top">
+      <Navbar className="navbar" sticky="top">
         <Navbar.Brand>
           <img
             src="/images/starwars-logo.png"
@@ -23,9 +18,9 @@ class Header extends Component {
           />
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-          {this.props.itemsInCart > 0 && (
-            <Badge className="itemsInCart-badge" variant="">
-              {this.props.itemsInCart}
+          {props.itemsInCart > 0 && (
+            <Badge className="itemsInCart-badge">
+              {props.itemsInCart}
             </Badge>
           )}
           <Button variant="transparent">
@@ -36,7 +31,6 @@ class Header extends Component {
         </Navbar.Collapse>
       </Navbar>
     );
-  }
 }
 
 export default Header;

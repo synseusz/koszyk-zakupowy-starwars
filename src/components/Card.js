@@ -79,7 +79,11 @@ class StarshipCard extends Component {
       <>
         {this.props.price === null ? (
           <Card className="starship-card starship-card-unavailable" bg="light">
-            <Card.Img variant="top" style={{height: "200px"}} src={this.props.image(this.props.name)} />
+            <Card.Img
+              variant="top"
+              style={{ height: "200px" }}
+              src={this.props.image(this.props.name)}
+            />
             <Card.Body>
               <Card.Title>{this.props.name}</Card.Title>
               {!this.props.manufacturer2 && (
@@ -100,7 +104,11 @@ class StarshipCard extends Component {
           </Card>
         ) : (
           <Card className="starship-card" bg="light">
-            <Card.Img variant="top" style={{height: "200px"}} src={this.props.image(this.props.name)} />
+            <Card.Img
+              variant="top"
+              style={{ height: "200px" }}
+              src={this.props.image(this.props.name)}
+            />
             <Badge
               variant="dark"
               style={{

@@ -25,15 +25,15 @@
   width: 200px;
 }
 .itemsInCart-badge {
-    position: fixed;
-    top:25px;
-    right:20px;
-    color:white;
-    background-color: red;
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  color: white;
+  background-color: red;
 }
 
 .body-container {
-  background-image: url('https://wallpapercave.com/wp/wp400097.jpg');
+  background-image: url("https://wallpapercave.com/wp/wp400097.jpg");
   background-repeat: no-repeat;
   background-position: top center;
   background-attachment: fixed;
@@ -54,10 +54,10 @@
   justify-content: center;
 }
 .starship-card-unavailable {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 .starship-card-unavailable:hover {
-    opacity: 1;
+  opacity: 1;
 }
 .starship-card {
   margin: 30px;
@@ -67,7 +67,7 @@
   color: black;
 }
 .starship-card:hover {
-    box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.801);
+  box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.801);
 }
 
 /* Remove Arrows/Spinners */
